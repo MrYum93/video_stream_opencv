@@ -51,9 +51,10 @@
 	        <param name="height" type="int" value="$(arg height)" />
 	    </node>
 
-	    <node if="$(arg visualize)" name="$(arg camera_name)_image_view" pkg="image_view" type="image_view">
+	    <!-- This is to vizualize the image --> 
+		<!-- <node if="$(arg visualize)" name="$(arg camera_name)_image_view" pkg="image_view" type="image_view">
 	    	<remap from="image" to="image_raw" />
-	    </node>
+	    </node> -->
 	</group>
 
 </launch>
