@@ -11,7 +11,7 @@
 		  For the skyhopper, change IP and port:
 		  rtsp://192.168.1.111:8554/visible
 		-->
-	  	<arg name="video_stream_provider" value="2" />
+	  	<arg name="video_stream_provider" default="2" />
 	  	<!-- set camera fps to (if the device allows) -->
 	  	<arg name="set_camera_fps" value="30"/>
       	<!-- set buffer queue size of frame capturing to (1 means we want the latest frame only) -->
