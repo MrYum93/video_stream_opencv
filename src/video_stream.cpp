@@ -50,6 +50,7 @@
 #include <queue>
 #include <mutex>
 #include <video_stream_opencv/VideoStreamConfig.h>
+#include <iostream>
 
 namespace fs = boost::filesystem;
 
@@ -277,6 +278,7 @@ virtual void subscribe() {
     NODELET_ERROR_STREAM("Could not open the stream.");
     return;
   }
+
   if (latest_config.width != 0 && latest_config.height != 0){
     cap->set(cv::CAP_PROP_FRAME_WIDTH, latest_config.width);
     cap->set(cv::CAP_PROP_FRAME_HEIGHT, latest_config.height);
