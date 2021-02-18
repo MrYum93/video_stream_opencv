@@ -239,7 +239,7 @@ virtual void subscribe() {
     NODELET_INFO_STREAM("Opening VideoCapture with provider: /dev/video" << device_num);
     cap->open(device_num);
   } catch (std::invalid_argument &ex) {
-    NODELET_INFO_STREAM("Opening VideoCapture with provider: " << video_stream_provider);
+    NODELET_INFO_STREAM("Opening VideoCapture with other provider: " << video_stream_provider);
     cap->open(video_stream_provider);
     if(video_stream_provider_type == "videofile" )
       {
