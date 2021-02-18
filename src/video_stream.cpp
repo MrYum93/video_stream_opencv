@@ -142,7 +142,7 @@ virtual void do_capture() {
         {
             if (latest_config.loop_videofile)
             {
-                NODELET_INFO_STREAM("Opening the cap MWM")
+                NODELET_INFO_STREAM("Opening the cap MWM");
                 cap->open(video_stream_provider, cv::CAP_V4L2);
                 cap->set(cv::CAP_PROP_POS_FRAMES, latest_config.start_frame);
                 frame_counter = 0;
