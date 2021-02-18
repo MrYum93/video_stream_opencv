@@ -65,7 +65,7 @@ VideoStreamConfig config;
 std::mutex q_mutex, s_mutex, c_mutex, p_mutex;
 std::queue<cv::Mat> framesQueue;
 cv::Mat frame;
-boost::shared_ptr<cv::VideoCapture("tcambin serial=50910677 ! videoscale ! video/x-raw, format=BGRx,width= 1280,height=960,framerate=20/1 ! videoconvert ! appsink", cv2.CAP_GSTREAMER)> cap;
+boost::shared_ptr<cv::VideoCapture> cap;
 std::string video_stream_provider;
 std::string video_stream_provider_type;
 int subscriber_num;
@@ -143,7 +143,7 @@ virtual void do_capture() {
             if (latest_config.loop_videofile)
             {
                 NODELET_INFO_STREAM("Opening the cap MWM");
-                cap->open(video_stream_provider, cv::CAP_V4L2);
+                cap->open(video_stream_provider);
                 cap->set(cv::CAP_PROP_POS_FRAMES, latest_config.start_frame);
                 frame_counter = 0;
             }
@@ -237,7 +237,7 @@ virtual void subscribe() {
   try {
     int device_num = std::stoi(video_stream_provider);
     NODELET_INFO_STREAM("Opening VideoCapture with provider: /dev/video" << device_num);
-    cap->open(device_num);
+    cap->open(device_num), cv::CAP_V4L2;
   } catch (std::invalid_argument &ex) {
     NODELET_INFO_STREAM("Opening VideoCapture with other provider: " << video_stream_provider);
     cap->open(video_stream_provider);
