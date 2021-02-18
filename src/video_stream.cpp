@@ -65,7 +65,7 @@ VideoStreamConfig config;
 std::mutex q_mutex, s_mutex, c_mutex, p_mutex;
 std::queue<cv::Mat> framesQueue;
 cv::Mat frame;
-boost::shared_ptr<cv::VideoCapture> cap;
+boost::shared_ptr<cv::VideoCapture("tcambin serial=50910677 ! videoscale ! video/x-raw, format=BGRx,width= 1280,height=960,framerate=20/1 ! videoconvert ! appsink", cv2.CAP_GSTREAMER)> cap;
 std::string video_stream_provider;
 std::string video_stream_provider_type;
 int subscriber_num;
